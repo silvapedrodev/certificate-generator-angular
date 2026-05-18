@@ -39,7 +39,6 @@
 
 .custom-warning-titles {
   gap: 2px;
-
 }
 
 .card-title {
@@ -58,4 +57,8 @@
   letter-spacing: 0;
   text-align: center;
   color: #64748B;
+}
+
+.list-certificate {
+  max-width: 672px;
 }
