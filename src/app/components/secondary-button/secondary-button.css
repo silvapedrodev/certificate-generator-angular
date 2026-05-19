@@ -2,11 +2,12 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  
+
   height: 40px;
   padding: 10px 16px;
   border: none;
   border-radius: 6px;
+  font-weight: 600;
   font-size: 16px;
   color: #fff;
   background-color: #1A2856;
