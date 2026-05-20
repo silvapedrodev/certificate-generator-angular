@@ -7,4 +7,4 @@ import { ItemCertificate } from "../../components/item-certificate/item-certific
   templateUrl: './certificates.html',
   styleUrl: './certificates.css',
 })
-export class Certificates {}
+export class Certificates { }
