@@ -10,10 +10,6 @@
   height: 40px;
 }
 
-.active {
-  color: #3B5AC2;
-}
-
 .nav-link {
   padding: 6px !important;
 }
@@ -23,6 +19,10 @@
   font-weight: 600;
 }
 
+.nav-item:has(a.active) i {
+  color: #3B5AC2;
+}
+
 .nav-item {
   cursor: pointer;
   margin-left: 18px !important;
@@ -30,5 +30,4 @@
 
 .nav-item i {
   font-size: 20px;
-
 }
