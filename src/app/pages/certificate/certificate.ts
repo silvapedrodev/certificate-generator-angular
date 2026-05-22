@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { SecondaryButton } from "../../components/secondary-button/secondary-button";
-import { RouterLink } from "@angular/router";
+import { ActivatedRoute, RouterLink } from "@angular/router";
+import { CertificateService } from '../../services/certificate';
+import { Certificate as CertificateModel } from '../../interfaces/certificate';
 
 @Component({
   selector: 'app-certificate',
@@ -8,4 +10,20 @@ import { RouterLink } from "@angular/router";
   templateUrl: './certificate.html',
   styleUrl: './certificate.css',
 })
-export class Certificate {}
+export class Certificate {
+  id: string | null = null;
+  certificate: CertificateModel | undefined
+
+  constructor(
+    private certificateService: CertificateService,
+    private route: ActivatedRoute
+  ) { }
+
+  ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.id = params.get('id');
+      this.certificate = this.certificateService.certificates.find(item => item.id == this.id);
+      console.log(this.certificate);
+    })
+  }
+}

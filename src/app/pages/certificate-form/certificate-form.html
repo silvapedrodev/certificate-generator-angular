@@ -9,8 +9,8 @@
 
     <div class="mb-3 custom-input-group">
       <label [ngClass]="{'text-danger-label' : campoInvalido(nomeRef)}" for="nome" class="form-label">Nome</label>
-      <input [(ngModel)]="certificate.name" #nomeRef="ngModel" maxlength="150" required id="nome" name="nome" type="text"
-        class="form-control custom-input" placeholder="Digite o nome completo do aluno">
+      <input [(ngModel)]="certificate.name" #nomeRef="ngModel" maxlength="150" required id="nome" name="nome"
+        type="text" class="form-control custom-input" placeholder="Digite o nome completo do aluno">
       @if (campoInvalido(nomeRef)) {
       <div class="error-message d-flex align-items-center">
         <i class="ph ph-warning-circle"></i>
@@ -25,7 +25,7 @@
         <input #activityRef="ngModel" maxlength="50" required name="activity" [(ngModel)]="activity" id="activity"
           type="text" class="form-control custom-input" placeholder="Digite o título da atividade">
       </div>
-      <app-secondary-button phClass="ph ph-plus" textButton="Adicionar" [disabled]="activity.length == 0"
+      <app-secondary-button phClass="ph ph-plus" textButton="Adicionar" [disabled]="!activity || activity.length == 0"
         (click)="addActivity()">
       </app-secondary-button>
     </div>

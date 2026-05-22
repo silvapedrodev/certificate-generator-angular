@@ -1,7 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Navbar } from "./components/navbar/navbar";
 import { BaseUi } from "./components/base-ui/base-ui";
+import { CertificateService } from './services/certificate';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,14 @@ import { BaseUi } from "./components/base-ui/base-ui";
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
+export class App implements OnInit{
   protected readonly title = signal('certificate-generator');
+
+  constructor(private certificateService: CertificateService) {}
+
+  ngOnInit(): void {
+    const certificates = localStorage.getItem('certificates');
+    this.certificateService.certificates = certificates ? JSON.parse(certificates) : [];
+    console.log(this.certificateService.certificates)
+  }
 }
