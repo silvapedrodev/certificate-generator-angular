@@ -4,6 +4,7 @@ import { SecondaryButton } from "../../components/secondary-button/secondary-but
 import { FormsModule, NgModel } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Certificate } from '../../interfaces/certificate';
+import { CertificateService } from '../../services/certificate';
 
 @Component({
   selector: 'app-certificate-form',
@@ -12,6 +13,8 @@ import { Certificate } from '../../interfaces/certificate';
   styleUrl: './certificate-form.css',
 })
 export class CertificateForm {
+  constructor(private certificateServices: CertificateService){}
+
   activity: string = ''
 
   certificate: Certificate = {
@@ -42,7 +45,7 @@ export class CertificateForm {
       return
     }
     this.certificate.issueDate = this.currentDate();
-    console.log(this.certificate);
+    this.certificateServices.addCertificate(this.certificate);
   }
 
   currentDate() {
