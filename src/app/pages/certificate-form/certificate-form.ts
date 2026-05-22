@@ -16,7 +16,8 @@ export class CertificateForm {
 
   certificate: Certificate = {
     activities: [],
-    name: ''
+    name: '',
+    issueDate: ''
   };
 
   campoInvalido(control: NgModel) {
@@ -40,6 +41,17 @@ export class CertificateForm {
     if (!this.formValid()) {
       return
     }
-    console.log(this.certificate)
+    this.certificate.issueDate = this.currentDate();
+    console.log(this.certificate);
+  }
+
+  currentDate() {
+    const currentDate = new Date()
+    const day = String(currentDate.getDate()).padStart(2, '0');
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+    const year = String(currentDate.getFullYear());
+
+    const formattedDate = `${day}/${month}/${year}`;
+    return formattedDate;
   }
 }
