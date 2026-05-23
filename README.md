@@ -12,6 +12,7 @@
 ## Table of Contents
 
 - [Description](#description)
+- [Live Demo](#live-demo)
 - [Screenshot](#screenshot)
 - [Project Structure](#project-structure)
 - [Tech Stack](#tech-stack)
@@ -25,6 +26,11 @@
 ## Description
 
 A web application for creating, viewing, and downloading completion certificates. Fill in a participant name and completed activities, generate a styled certificate, and export it as a PNG image. Data is stored in the browser via `localStorage`, so certificates persist across sessions on the same device.
+
+## Live Demo
+
+👉 [View the project online](https://certificate-generator-angular.netlify.app)
+
 
 ## Screenshot
 
